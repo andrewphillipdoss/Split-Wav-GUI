@@ -5,7 +5,7 @@ from tqdm import tqdm
 from itertools import tee, chain
 from settings import *
 
-input_filename = '/Users/andrewdoss/Desktop/test_rendering/ObamaSpeech.wav'
+# set defaul parameters
 window_duration = 0.2
 step_duration = window_duration / 10.
 output_filename_prefix = "Sample_"
@@ -17,9 +17,11 @@ def windows(signal, window_size, step_size):
             break
         yield signal[start:end]
 
+# find the energy of a set of samples
 def energy(samples):
     return np.sum(np.power(samples, 2.)) / float(len(samples))
 
+# find where a binary signal goes from 0 to 1
 def rising_edges(binary_signal):
     previous_value = 0
     index = 0
@@ -29,6 +31,7 @@ def rising_edges(binary_signal):
         previous_value = x
         index += 1
 
+# find where a binary signal goes from 1 to 0
 def falling_edges(binary_signal):
     previous_value = 0
     index = 1
@@ -60,6 +63,7 @@ def find_silence(silence_threshold, input_filename):
     window_above_threshold = (e > silence_threshold for e in window_energy1)
     window_below_threshold = (e < silence_threshold for e in window_energy2)
 
+    # find times when wav is split
     end_cut_times = (r * step_duration for r in rising_edges(window_above_threshold))
     start_cut_times = (r * step_duration for r in falling_edges(window_below_threshold))
 
@@ -67,6 +71,7 @@ def find_silence(silence_threshold, input_filename):
     cut_times = sorted(chain(start_cut_times, end_cut_times))
     cut_samples = [int(t * sample_rate) for t in cut_times]
 
+    # generate files for cut samples
     for i in xrange(1,len(cut_samples)-1,2):
         name_iterator = name_iterator + 1
         output_filepath = "{}_{:03d}.wav".format(
