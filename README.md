@@ -14,6 +14,8 @@ You can use the file chooser to select a .wav file. The software only supports .
 To select a file, double click it in the file chooser. 
 The file path will be printed to the console if it is properly selected.
 
+You can adjust the sensitivity of the .wav spliter with the slider.
+
 Then, to split the file by its silences, click the 'Split Wav at Silences' button.
 The console will print 'SPLITTING WAV' when it begins and 'WAV SPLIT' when it finishes.
 Make sure to select a file before you click this button, or the software will crash.
