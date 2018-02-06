@@ -4,8 +4,9 @@ A just-for-fun sampler that can choose and split a file by silences.
 
 Getting Started:
 
--Clone the repo, and install the dependencies from 'requirements.txt'
--In terminal, run 'start.py'
+Clone the repo, and install the dependencies from 'requirements.txt'
+
+In terminal, run 'start.py'
 
 A GUI should pop up.
 
