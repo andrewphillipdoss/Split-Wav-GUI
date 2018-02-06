@@ -1,6 +1,6 @@
 # Split-Wav-GUI
 
-A just-for-fun sampler that can choose and split a file by silences. 
+A just-for-fun sampler that can choose and split a wav file by silences. 
 
 Usage Instructions:
 
