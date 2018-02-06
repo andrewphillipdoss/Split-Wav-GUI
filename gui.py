@@ -21,7 +21,6 @@ def play(audio_file_path):
 def play_sample(self):
     for btn in xrange(0,16):
         if self.text == str(btn+1):
-            #print str(btn+1)
             output_filepath = "{}_{:03d}.wav".format(
                 os.path.join(output_dir, output_filename_prefix),
                 (pad_bank * 16) + (btn + 1)
