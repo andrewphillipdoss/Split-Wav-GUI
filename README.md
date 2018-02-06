@@ -2,7 +2,7 @@
 
 A just-for-fun sampler that can choose and split a file by silences. 
 
-Getting Started:
+Usage Instructions:
 
 Clone the repo, and install the dependencies from 'requirements.txt'
 
